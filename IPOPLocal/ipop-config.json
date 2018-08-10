@@ -1,0 +1,83 @@
+{
+  "CFx": {
+    "Model": "Default",
+    "Overlays": [ "A0FB390" ]
+  },
+  "Logger": {
+    "Enabled": true,
+    "LogLevel": "DEBUG",
+    "Device": "File",
+    "Directory": "./logs/",
+    "CtrlLogFileName": "ctrl.log",
+    "TincanLogFileName": "tincan_log",
+    "MaxFileSize": 5000000,
+    "MaxArchives": 5
+
+  },
+  "TincanInterface": {
+    "Enabled": true
+  },
+  "Signal": {
+    "Enabled": true,
+    "Overlays": {
+      "A0FB390": {
+        "HostAddress": "xmpp.jp",
+        "Port": "5222",
+        "Username": "****",
+        "Password": "****",
+        "AuthenticationMethod": "PASSWORD",
+        "AcceptUntrustedServer": true
+      }
+    }
+  },
+  "Topology": {
+    "Enabled": true,
+    "Overlays": {
+      "A0FB390": {
+        "Name": "BridgedOverlay",
+        "Description": "Single-link Tunnels"
+      }
+    }
+  },
+  "LinkManager": {
+    "Enabled": true,
+    "Stun": [ "stun.l.google.com:19302" ],
+    "Turn": [
+      {
+        "Address": "****",
+        "User": "****",
+        "Password": "****"
+      }
+    ],
+    "Overlays": {
+      "A0FB390": {
+        "Type": "TUNNEL",
+        "TapName": "ipop"
+      }
+    }
+  },
+  "Icc": {
+    "Enabled": true
+  },
+  "Broadcaster": {
+    "Enabled": false
+  },
+  "OverlayVisualizer": {
+    "Enabled": false,
+    "WebServiceAddress": "localhost:5000",
+    "NodeName": "Node1"
+
+  },
+  "BridgeController": {
+    "Enabled": true,
+    "Dependencies": [ "Logger", "LinkManager" ],
+    "Overlays": {
+      "A0FB390": {
+        "Type": "LXBR",
+        "BridgeName": "ipopbr0",
+        "IP4": "10.0.0.0",
+        "PrefixLen": 8
+      }
+    }
+  }
+}

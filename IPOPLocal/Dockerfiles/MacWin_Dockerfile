@@ -1,0 +1,11 @@
+FROM dfedock135/ipop-v18-beta3:2.0
+
+# adds sudo capabilities
+ARG os_set
+COPY /$os_set/hosts /etc/
+
+# adds the config file
+ARG ipop_path
+WORKDIR /root/$ipop_path/
+COPY ipop-config.json config/
+

@@ -1,0 +1,9 @@
+{
+    "XMPPUser" : "your_name",
+    "XMPPPass" : "your_password",
+    "TURNAddr" : "turn_address",
+    "TURNUser" : "turn_user",
+    "TURNPass" : "turn_pass",
+    "IPAddr" : "10.10.10.1",
+    "PrefixLen" : 24
+}
